@@ -60,11 +60,19 @@
     async function predict() {
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
-        for (let i = 0; i < maxPredictions; i++) {
-            const classPrediction =
-                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-            labelContainer.childNodes[i].innerHTML = classPrediction;
+        if(prediction[0].classname == "Apple" && ) && prediction[0].probability.toFixed(2) == 1.00{
+            labelContainer.childNodes[0].innerHTML = "Apple Explanation: An apple is the round, edible fruit of an apple tree (Malus spp.). Fruit trees of the orchard or domestic apple (Malus domestica), the most widely grown in the genus, are cultivated worldwide."
+        } else if(prediction[1].classname == "Tomato" && ) && prediction[1].probability.toFixed(2) == 1.00{
+            labelContainer.childNodes[0].innerHTML = "Tomato Explanation:  The tomato (US: /təˈmeɪtoʊ/, UK: /təˈmɑːtoʊ/; Solanum lycopersicum) is a plant whose fruit is an edible berry that is eaten as a vegetable. "
+        } else {
+            labelContainer.childNodes[0].innerHTML = "Neither Apple nor Tomato"
         }
+
+             // for (let i = 0; i < maxPredictions; i++) {
+        //     const classPrediction =
+        //         prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+        //     labelContainer.childNodes[i].innerHTML = classPrediction;
+        // }
     }
 </script>
 
